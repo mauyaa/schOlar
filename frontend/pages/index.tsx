@@ -48,8 +48,7 @@ export default function Home({
       <section className="grid min-h-[70vh] gap-10 pt-6 md:grid-cols-[minmax(0,1.1fr)_minmax(24rem,0.9fr)] md:items-end">
         <div className="max-w-4xl">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="eyebrow">Operational scholarship funding</span>
-            <StatusPill tone="success">verified flow</StatusPill>
+           
           </div>
           <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-[color:var(--text)] md:text-7xl lg:text-8xl">
             Scholarship funding that makes every release explain itself.
