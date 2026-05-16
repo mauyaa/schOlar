@@ -1,0 +1,625 @@
+{
+    "abi":  [
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "_stableToken",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "_student",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "_institution",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "_verifier",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "_owner",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "constructor"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "EnforcedPause",
+                    "type":  "error"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "ExpectedPause",
+                    "type":  "error"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "owner",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "OwnableInvalidOwner",
+                    "type":  "error"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "account",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "OwnableUnauthorizedAccount",
+                    "type":  "error"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "ReentrancyGuardReentrantCall",
+                    "type":  "error"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "address",
+                                       "name":  "donor",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "amount",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "Funded",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "uint256",
+                                       "name":  "id",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "string",
+                                       "name":  "description",
+                                       "type":  "string"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "tuitionAmount",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "stipendAmount",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "dueDate",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "MilestoneAdded",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "uint256",
+                                       "name":  "id",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "MilestoneApproved",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "uint256",
+                                       "name":  "id",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "tuitionAmount",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "stipendAmount",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "MilestonePaid",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "address",
+                                       "name":  "previousOwner",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "address",
+                                       "name":  "newOwner",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "OwnershipTransferred",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "address",
+                                       "name":  "account",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "Paused",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "address",
+                                       "name":  "account",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "Unpaused",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "address",
+                                       "name":  "donor",
+                                       "type":  "address"
+                                   },
+                                   {
+                                       "indexed":  false,
+                                       "internalType":  "uint256",
+                                       "name":  "amount",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "UnspentWithdrawn",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+
+                               ],
+                    "name":  "VaultRevoked",
+                    "type":  "event"
+                },
+                {
+                    "anonymous":  false,
+                    "inputs":  [
+                                   {
+                                       "indexed":  true,
+                                       "internalType":  "address",
+                                       "name":  "newVerifier",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "VerifierUpdated",
+                    "type":  "event"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "string",
+                                       "name":  "description",
+                                       "type":  "string"
+                                   },
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "tuitionAmount",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "stipendAmount",
+                                       "type":  "uint256"
+                                   },
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "dueDate",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "addMilestone",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "id",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "approveMilestone",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "donorContributions",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "",
+                                        "type":  "uint256"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "amount",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "fund",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "institution",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "address",
+                                        "name":  "",
+                                        "type":  "address"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "milestones",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "string",
+                                        "name":  "description",
+                                        "type":  "string"
+                                    },
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "tuitionAmount",
+                                        "type":  "uint256"
+                                    },
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "stipendAmount",
+                                        "type":  "uint256"
+                                    },
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "dueDate",
+                                        "type":  "uint256"
+                                    },
+                                    {
+                                        "internalType":  "enum ScholarshipVault.MilestoneStatus",
+                                        "name":  "status",
+                                        "type":  "uint8"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "milestonesCount",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "",
+                                        "type":  "uint256"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "owner",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "address",
+                                        "name":  "",
+                                        "type":  "address"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "pause",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "paused",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "bool",
+                                        "name":  "",
+                                        "type":  "bool"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "uint256",
+                                       "name":  "id",
+                                       "type":  "uint256"
+                                   }
+                               ],
+                    "name":  "payMilestone",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "renounceOwnership",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "revokeVault",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "revoked",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "bool",
+                                        "name":  "",
+                                        "type":  "bool"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "_verifier",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "setVerifier",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "stableToken",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "contract IERC20",
+                                        "name":  "",
+                                        "type":  "address"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "student",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "address",
+                                        "name":  "",
+                                        "type":  "address"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "totalCommitted",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "",
+                                        "type":  "uint256"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "totalDisbursed",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "uint256",
+                                        "name":  "",
+                                        "type":  "uint256"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+                                   {
+                                       "internalType":  "address",
+                                       "name":  "newOwner",
+                                       "type":  "address"
+                                   }
+                               ],
+                    "name":  "transferOwnership",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "unpause",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "verifier",
+                    "outputs":  [
+                                    {
+                                        "internalType":  "address",
+                                        "name":  "",
+                                        "type":  "address"
+                                    }
+                                ],
+                    "stateMutability":  "view",
+                    "type":  "function"
+                },
+                {
+                    "inputs":  [
+
+                               ],
+                    "name":  "withdrawUnspent",
+                    "outputs":  [
+
+                                ],
+                    "stateMutability":  "nonpayable",
+                    "type":  "function"
+                }
+            ]
+}
