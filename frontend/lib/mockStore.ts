@@ -345,6 +345,20 @@ export function listVaults() {
   return VAULTS;
 }
 
+export function listEnrichedVaults() {
+  return VAULTS.map((vault) => {
+    const student = findStudent(vault.studentAddress);
+    return {
+      ...vault,
+      studentName: student?.name,
+      country: student?.country,
+      field: student?.field,
+      institution: student?.institution,
+      impactStory: student?.impactStory,
+    };
+  });
+}
+
 export function findStudent(address: string) {
   return STUDENTS.find((s) => s.address.toLowerCase() === address.toLowerCase());
 }

@@ -1,9 +1,8 @@
-﻿import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 import {
   addStudent,
+  listEnrichedVaults,
   listStudents,
-  listVaults,
-  findStudent,
 } from "../../../lib/mockStore";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -33,17 +32,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (req.method === "GET") {
     const students = listStudents();
-    const vaults = listVaults().map((v) => {
-      const student = findStudent(v.studentAddress);
-      return {
-        ...v,
-        studentName: student?.name,
-        country: student?.country,
-        field: student?.field,
-        institution: student?.institution,
-        impactStory: student?.impactStory,
-      };
-    });
+    const vaults = listEnrichedVaults();
 
     res.status(200).json({ students, vaults });
     return;

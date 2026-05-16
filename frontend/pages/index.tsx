@@ -6,6 +6,7 @@ import { StatusPill } from "../components/StatusPill";
 import { VaultCard } from "../components/VaultCard";
 import { fetcher } from "../lib/api";
 import { formatCurrency } from "../lib/format";
+import { listEnrichedVaults } from "../lib/mockStore";
 
 type VaultSummary = {
   vaultAddress: string;
@@ -24,8 +25,14 @@ type VaultSummary = {
   caseId?: string;
 };
 
-export default function Home() {
-  const { data } = useSWR<{ vaults: VaultSummary[] }>("/api/students", fetcher);
+export default function Home({
+  initialVaults,
+}: {
+  initialVaults: VaultSummary[];
+}) {
+  const { data } = useSWR<{ vaults: VaultSummary[] }>("/api/students", fetcher, {
+    fallbackData: { vaults: initialVaults },
+  });
   const vaults = data?.vaults ?? [];
   const committed = vaults.reduce((sum, vault) => sum + vault.committed, 0);
   const disbursed = vaults.reduce((sum, vault) => sum + vault.disbursed, 0);
@@ -159,4 +166,12 @@ export default function Home() {
       </section>
     </div>
   );
+}
+
+export function getStaticProps() {
+  return {
+    props: {
+      initialVaults: listEnrichedVaults(),
+    },
+  };
 }
