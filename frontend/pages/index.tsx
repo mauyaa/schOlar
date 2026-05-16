@@ -54,10 +54,7 @@ export default function Home({
           <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] text-[color:var(--text)] md:text-7xl lg:text-8xl">
             Scholarship funding that makes every release explain itself.
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[color:var(--text-muted)] md:text-xl md:leading-9">
-            ScOlar turns donor intent into milestone-based vaults: verified learners,
-            transparent approvals, and disbursements that can be audited before trust is spent.
-          </p>
+         
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link href="/donor/explore" className="btn-primary">
               Open donor desk

@@ -59,12 +59,7 @@ export default function Apply() {
     <div className="space-y-10">
       <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start">
         <div>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="eyebrow">Student intake</span>
-            <StatusPill tone={address ? "success" : "warning"}>
-              {address ? "wallet linked" : "wallet optional"}
-            </StatusPill>
-          </div>
+          
           <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[0.98] tracking-[-0.04em] md:text-6xl">
             Apply with the evidence a verifier needs on day one.
           </h1>

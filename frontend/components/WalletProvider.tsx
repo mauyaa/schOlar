@@ -100,9 +100,7 @@ export default function WalletProvider({
               <span className="text-xl font-semibold tracking-[-0.02em]">
                 Sc<span className="text-[color:var(--accent)]">O</span>lar
               </span>
-              <span className="hidden text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--text-soft)] sm:inline">
-                proof funding layer
-              </span>
+              
             </Link>
 
             <nav
