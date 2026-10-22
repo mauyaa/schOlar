@@ -35,18 +35,16 @@ schOlar/
 │   ├── package.json
 │   └── tsconfig.json
 │
-├── contracts/              # Solidity smart contracts
-│   ├── contracts/          # Contract source files
-│   │   ├── ScholarshipFactory.sol
-│   │   └── ScholarshipVault.sol
-│   ├── scripts/            # Deployment scripts
-│   │   └── deploy.js
-│   ├── test/               # Contract tests
-│   ├── hardhat.config.js
-│   ├── package.json
-│   └── .env.example
-│
-└── joke-generator/         # Utility project (optional)
+└── contracts/              # Solidity smart contracts
+    ├── contracts/          # Contract source files
+    │   ├── ScholarshipFactory.sol
+    │   └── ScholarshipVault.sol
+    ├── scripts/            # Deployment scripts
+    │   └── deploy.js
+    ├── test/               # Contract tests
+    ├── hardhat.config.js
+    ├── package.json
+    └── .env.example
 ```
 
 ## Frontend Setup
